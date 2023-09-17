@@ -246,7 +246,6 @@
 		2B4D6F102AAE37AB00225EEE /* Football Leagues */ = {
 			isa = PBXGroup;
 			children = (
-				2B9A73072AB6042C00CEA046 /* Persistence */,
 				2B9E38C22AB373920020BFB0 /* MainFeature */,
 				2B4D6F1F2AAE37AB00225EEE /* Application */,
 				2B4D6F1C2AAE37AB00225EEE /* Network */,
@@ -353,13 +352,6 @@
 				2B4D6F252AAE37AB00225EEE /* SceneDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		2B9A73072AB6042C00CEA046 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 		2B9A730C2AB6453D00CEA046 /* Constants */ = {
