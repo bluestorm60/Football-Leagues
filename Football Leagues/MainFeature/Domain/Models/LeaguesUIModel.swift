@@ -37,3 +37,21 @@ struct LeaguesUIModel {
         }
     }
 }
+
+extension LeaguesUIModel {
+    init(count: Int? = 0, competitions: [CompetitionUIModel]? = []){
+        self.count = count ?? 0
+        self.competitions = competitions ?? []
+    }
+}
+
+extension LeaguesUIModel.CompetitionUIModel{
+    init(from model: TeamsUIModel.CompetitionUIModel) {
+        self.areaName = model.name
+        self.code = model.code
+        self.emblem = model.emblem
+        self.id = model.id
+        self.name = model.name
+        self.type = model.type
+    }
+}

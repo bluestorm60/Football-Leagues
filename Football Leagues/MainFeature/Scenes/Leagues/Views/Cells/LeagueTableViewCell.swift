@@ -27,8 +27,7 @@ class LeagueTableViewCell: UITableViewCell {
 
     private func configure(_ item: CompetitionCellViewModel?){
         guard let item = item else {return}
-        commonLeagueView.actionClicked = { [weak self] in
-            guard let self else {return}
+        commonLeagueView.actionClicked = {
             item.delegate?.openCompetition(item: item.item)
         }
         commonLeagueView.item =

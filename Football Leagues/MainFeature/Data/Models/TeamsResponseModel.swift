@@ -35,7 +35,7 @@ struct TeamsResponseModel: Codable {
     }
 
     struct Team: Codable {
-        let area: Area
+        let area: Area?
         let id: Int
         let name: String
         let shortName: String
@@ -45,7 +45,7 @@ struct TeamsResponseModel: Codable {
             let id: Int
             let name: String
             let code: String
-            let flag: String
+            let flag: String?
         }
     }
 }

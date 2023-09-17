@@ -17,7 +17,6 @@ protocol FootballLeaguesRepository {
 final class FootballLeaguesRepositoryImpl: FootballLeaguesRepository {
     
     private let network: NetworkProtocol
-//    private let coreDataRepository: LeaguesCoreDataRepository
 
     init(network: NetworkProtocol) {
         self.network = network

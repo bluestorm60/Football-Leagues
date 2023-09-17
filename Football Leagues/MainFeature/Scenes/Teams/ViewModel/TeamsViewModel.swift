@@ -32,6 +32,7 @@ final class TeamsViewModel: TeamsViewModelProtocols{
 
     weak var coordinator: MainCoordinator?
     private let useCase: LeaguesUseCase
+    private var cancellables = Set<AnyCancellable>()
     private let item: LeaguesUIModel.CompetitionUIModel
     
     //MARK: - Outputs
@@ -43,6 +44,7 @@ final class TeamsViewModel: TeamsViewModelProtocols{
         self.coordinator = coordinator
         self.useCase = useCase
         self.item = item
+        self.useCase.loadingPublisher.assignNoRetain(to: \.loading, on: self).store(in: &cancellables)
     }
 }
 
@@ -73,7 +75,7 @@ extension TeamsViewModel {
 extension TeamsViewModel{
      private func requests(){
         Task {
-            let response =  try await useCase.fetchTeams(competionCode: item.code)
+            let response =  try await useCase.fetchTeams(competition: item)
             switch response {
             case .success(let result):
                 let cellViewModels = convertToCellModels(result.teams)

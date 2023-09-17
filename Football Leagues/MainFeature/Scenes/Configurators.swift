@@ -26,7 +26,8 @@ enum Configurators{
     private func leaguesViewController(coordinator: MainCoordinator?) -> UIViewController{
         let network = Network.shared
         let repository = FootballLeaguesRepositoryImpl(network: network)
-        let useCase = LeaguesUseCaseImpl(repository: repository)
+        let coreDataRepo = CoreDataUseCaseImpl(manager: CoreDataManager.shared)
+        let useCase = LeaguesUseCaseImpl(repository: repository, coreDataRepository: coreDataRepo)
         let viewModel = LeaguesViewModel(coordinator: coordinator, useCase: useCase)
         return LeaguesViewController(viewModel: viewModel)
     }

@@ -59,3 +59,12 @@ extension TeamsUIModel.TeamUIModel {
 }
 
 
+
+extension TeamsUIModel.TeamUIModel{
+    init(from team: Team){
+        self.id = Int(team.id)
+        self.crest = team.crest ?? ""
+        self.name = team.name ?? ""
+        self.shortName = team.shortName ?? ""
+    }
+}
