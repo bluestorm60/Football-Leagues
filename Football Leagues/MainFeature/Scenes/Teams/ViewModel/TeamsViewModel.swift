@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+
 //MARK: - Input Protocol
 protocol TeamsViewModelInput{
     func viewWillAppear()
@@ -14,6 +15,7 @@ protocol TeamsViewModelInput{
     func getCompetitionName() -> String
     func numberOfRowsInSection() -> Int
     func cellForRow(_ indexPath: IndexPath) -> TeamsCellViewModel
+    func heightForRow() -> CGFloat
 }
 
 //MARK: - Output Protocol
@@ -33,13 +35,16 @@ final class TeamsViewModel: TeamsViewModelProtocols{
     weak var coordinator: MainCoordinator?
     private let useCase: LeaguesUseCase
     private var cancellables = Set<AnyCancellable>()
-    private let item: LeaguesUIModel.CompetitionUIModel
-    
+    private var item: LeaguesUIModel.CompetitionUIModel
+    private var cellHeight: CGFloat {
+        return 120.0
+    }
     //MARK: - Outputs
     var listPublisher: Published<[TeamsCellViewModel]>.Publisher {$list}
     var loadingPublisher: Published<LoadingState>.Publisher {$loading}
     var errorMsgPublisher: Published<String?>.Publisher {$errorMsg}
 
+    //MARK: - Init
     init(coordinator: MainCoordinator? = nil, useCase: LeaguesUseCase, item: LeaguesUIModel.CompetitionUIModel) {
         self.coordinator = coordinator
         self.useCase = useCase
@@ -69,6 +74,10 @@ extension TeamsViewModel {
     func cellForRow(_ indexPath: IndexPath) -> TeamsCellViewModel{
         return list[indexPath.row]
     }
+    
+    func heightForRow() -> CGFloat {
+        return cellHeight
+    }
 }
 
 //MARK: - Requests
@@ -79,6 +88,7 @@ extension TeamsViewModel{
             switch response {
             case .success(let result):
                 let cellViewModels = convertToCellModels(result.teams)
+                item.numberOfTeams = "\(result.count)"
                 list = cellViewModels
             case .error(let networkError):
                 errorMsg = networkError.localizedDescription
@@ -98,6 +108,7 @@ extension TeamsViewModel: TeamsCellViewModelDelegate{
     func openTeamDetails(item: TeamsUIModel.TeamUIModel?) {
         guard let item = item else {return}
         //navigate to Team Matches
+        coordinator?.openTeamGames(item: item)
 
     }
 }

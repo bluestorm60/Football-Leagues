@@ -29,13 +29,19 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-nd-2t9">
-                    <rect key="frame" x="0.0" y="190" width="393" height="628"/>
+                    <rect key="frame" x="0.0" y="221" width="393" height="597"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwf-mt-s41">
-                    <rect key="frame" x="10" y="179" width="373" height="1"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="0.1597310799319728" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvo-r3-rGF">
+                    <rect key="frame" x="10" y="189" width="373" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-Z5-P6Z">
+                    <rect key="frame" x="10" y="220" width="373" height="1"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="xzr-SD-IPE"/>
+                        <constraint firstAttribute="height" constant="1" id="Dcj-1O-tlp"/>
                     </constraints>
                 </view>
             </subviews>
@@ -43,13 +49,16 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R4J-jt-Ldg" secondAttribute="trailing" id="8YH-QH-XK8"/>
-                <constraint firstItem="wwf-mt-s41" firstAttribute="top" secondItem="R4J-jt-Ldg" secondAttribute="bottom" id="Fug-cI-qvM"/>
+                <constraint firstItem="vGx-Z5-P6Z" firstAttribute="top" secondItem="Rvo-r3-rGF" secondAttribute="bottom" constant="10" id="Bpd-Wn-aBh"/>
+                <constraint firstItem="vGx-Z5-P6Z" firstAttribute="trailing" secondItem="Rvo-r3-rGF" secondAttribute="trailing" id="CG0-yZ-VQs"/>
+                <constraint firstItem="vGx-Z5-P6Z" firstAttribute="leading" secondItem="Rvo-r3-rGF" secondAttribute="leading" id="LG2-8x-h3S"/>
+                <constraint firstItem="ecU-nd-2t9" firstAttribute="top" secondItem="vGx-Z5-P6Z" secondAttribute="bottom" id="MCi-qh-0kE"/>
                 <constraint firstItem="R4J-jt-Ldg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QiZ-3N-p6f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ecU-nd-2t9" secondAttribute="bottom" id="TZy-w4-JNo"/>
-                <constraint firstItem="ecU-nd-2t9" firstAttribute="top" secondItem="wwf-mt-s41" secondAttribute="bottom" constant="10" id="bFk-ku-r4p"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ecU-nd-2t9" secondAttribute="trailing" id="cJA-9n-jPL"/>
-                <constraint firstItem="wwf-mt-s41" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="fpD-4g-LkP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wwf-mt-s41" secondAttribute="trailing" constant="10" id="jCd-G2-AGj"/>
+                <constraint firstItem="Rvo-r3-rGF" firstAttribute="top" secondItem="R4J-jt-Ldg" secondAttribute="bottom" constant="10" id="gqc-od-bvd"/>
+                <constraint firstItem="Rvo-r3-rGF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="jjp-Xc-pQ5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rvo-r3-rGF" secondAttribute="trailing" constant="10" id="oEg-uj-oAq"/>
                 <constraint firstItem="R4J-jt-Ldg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pQE-0J-Z2p"/>
                 <constraint firstItem="ecU-nd-2t9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zJB-7A-NzK"/>
             </constraints>

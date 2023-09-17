@@ -28,6 +28,11 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func openTeamGames(item: TeamsUIModel.TeamUIModel){
+        let vc = Configurators.teamDetails(item: item, coordinator: self).getViewController()
+        vc.title = item.name
+        navigationController.pushViewController(vc, animated: true)
+    }
 
     func childDidFinish(_ child: Coordinator?){
         for (index,coordinator) in childCoordinators.enumerated(){
@@ -37,18 +42,24 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             }
         }
     }
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {return}
-        
-        if navigationController.viewControllers.contains(fromViewController){
-            return
-        }
-        if let teamsViewController = fromViewController as? TeamsViewController{
-            childDidFinish(teamsViewController.viewModel.coordinator)
-        }
-        
-        if let teamsDetails = fromViewController as? TeamDetailsViewController{
-            childDidFinish(teamsDetails.coordinator)
-        }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        viewController.navigationItem.backBarButtonItem = item
     }
+    
+//    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+//        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {return}
+//
+//        if navigationController.viewControllers.contains(fromViewController){
+//            return
+//        }
+//        if let teamsViewController = fromViewController as? TeamsViewController{
+//            childDidFinish(teamsViewController.viewModel.coordinator)
+//        }
+//
+//        if let teamsDetails = fromViewController as? TeamDetailsViewController{
+//            childDidFinish(teamsDetails.coordinator)
+//        }
+//    }
 }

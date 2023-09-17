@@ -49,6 +49,8 @@ class TeamsViewController: UIViewController, PresentableAlert, LoadingViewCapabl
         super.viewWillAppear(animated)
     }
     
+    
+    //MARK: - Methods / binding
     private func binding(){
         bindLoading()
         bindErrorMsg()
@@ -77,32 +79,27 @@ class TeamsViewController: UIViewController, PresentableAlert, LoadingViewCapabl
     private func bindTeamsList(){
         viewModel.listPublisher.receive(on: DispatchQueue.main).sink { [weak self] list in
             guard let self else { return }
+            headerView.item = viewModel.getHeaderData()
             teamsTableView.reloadData()
         }.store(in: &cancellables)
     }
 
 }
 
+//MARK: - DataSource & delegate
 extension TeamsViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.getCompetitionName()
-    }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TeamsTableViewCell", for: indexPath) as? TeamsTableViewCell  else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TeamsTableViewCell.className, for: indexPath) as? TeamsTableViewCell  else { return UITableViewCell() }
         cell.item = viewModel.cellForRow(indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120.0
+        return viewModel.heightForRow()
     }
 }
 
