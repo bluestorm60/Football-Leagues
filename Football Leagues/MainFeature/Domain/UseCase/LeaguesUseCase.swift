@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol LeaguesUseCase {
-    var loadingPublisher: Published<LoadingState>.Publisher { get }
+protocol LeaguesUseCase: LoadingUseCase{
     func fetchCompetitions() async throws -> AppResponse<LeaguesUIModel>
     func fetchTeams(competition: LeaguesUIModel.CompetitionUIModel) async throws -> AppResponse<TeamsUIModel>
     func fetchMatches(competionCode: String) async throws -> AppResponse<CompetitionMatchUIModel>
@@ -16,9 +15,9 @@ protocol LeaguesUseCase {
 
 final class LeaguesUseCaseImpl{
     @Published private var loading: LoadingState = .none
+    var loadingPublisher: Published<LoadingState>.Publisher {$loading}
 
     private let repository: FootballLeaguesRepository
-    var loadingPublisher: Published<LoadingState>.Publisher {$loading}
     private let coreDataRepository: CoreDataUseCase
 
     init(repository: FootballLeaguesRepository,coreDataRepository: CoreDataUseCase) {
@@ -84,6 +83,7 @@ extension LeaguesUseCaseImpl{
         }
     }
 }
+
 
 extension LeaguesUseCaseImpl{
     func fetchTeams(competition: LeaguesUIModel.CompetitionUIModel) async throws -> AppResponse<TeamsUIModel> {

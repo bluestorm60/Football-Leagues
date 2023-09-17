@@ -91,8 +91,8 @@ struct TeamMatchesResponseModel: Codable {
             let halfTime: ScoreDetail
 
             struct ScoreDetail: Codable {
-                let home: Int
-                let away: Int
+                let home: Int?
+                let away: Int?
             }
         }
     }

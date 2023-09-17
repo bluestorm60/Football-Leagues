@@ -28,6 +28,11 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func openTeamGames(item: TeamsUIModel.TeamUIModel){
+        let vc = Configurators.teamDetails(item: item, coordinator: self).getViewController()
+        vc.title = item.name
+        navigationController.pushViewController(vc, animated: true)
+    }
 
     func childDidFinish(_ child: Coordinator?){
         for (index,coordinator) in childCoordinators.enumerated(){
