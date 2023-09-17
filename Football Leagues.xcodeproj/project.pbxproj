@@ -267,6 +267,7 @@
 		2B4D6F122AAE37AB00225EEE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2B9E38DE2AB4AB920020BFB0 /* CustomViews */,
 				2BC53E432AB0D77E001C08C9 /* TeamDetails */,
 				2BC53E422AB0D771001C08C9 /* Teams */,
 				2BC53E412AB0D745001C08C9 /* Leagues */,
@@ -365,7 +366,6 @@
 		2B9E38B52AB365330020BFB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2B9E38DE2AB4AB920020BFB0 /* CustomViews */,
 				2B9E38B62AB3654C0020BFB0 /* Cells */,
 			);
 			path = Views;

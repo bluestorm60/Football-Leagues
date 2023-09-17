@@ -105,6 +105,13 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pj4-yd-qsN">
+                    <rect key="frame" x="10" y="105" width="250" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jAT-gX-2tu"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-0c-cHY">
                     <rect key="frame" x="10" y="10" width="250" height="86"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,12 +129,15 @@
                 <constraint firstItem="fUg-I2-2qO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="dzU-hi-HzX"/>
                 <constraint firstAttribute="trailing" secondItem="fUg-I2-2qO" secondAttribute="trailing" constant="10" id="fZE-0I-XRx"/>
                 <constraint firstItem="hRi-0c-cHY" firstAttribute="trailing" secondItem="fUg-I2-2qO" secondAttribute="trailing" id="fcO-XL-lrW"/>
+                <constraint firstItem="Pj4-yd-qsN" firstAttribute="leading" secondItem="fUg-I2-2qO" secondAttribute="leading" id="iLH-ny-lml"/>
                 <constraint firstItem="hRi-0c-cHY" firstAttribute="top" secondItem="fUg-I2-2qO" secondAttribute="top" id="lri-8g-nVg"/>
+                <constraint firstItem="Pj4-yd-qsN" firstAttribute="trailing" secondItem="fUg-I2-2qO" secondAttribute="trailing" id="mgH-rg-5jH"/>
                 <constraint firstItem="hRi-0c-cHY" firstAttribute="leading" secondItem="fUg-I2-2qO" secondAttribute="leading" id="wAS-hL-8mx"/>
+                <constraint firstAttribute="bottom" secondItem="Pj4-yd-qsN" secondAttribute="bottom" id="yyp-6R-PaR"/>
                 <constraint firstItem="hRi-0c-cHY" firstAttribute="bottom" secondItem="fUg-I2-2qO" secondAttribute="bottom" id="zQR-YR-y1E"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="70" y="-32"/>
+            <point key="canvasLocation" x="68.702290076335871" y="-32.394366197183103"/>
         </view>
     </objects>
     <resources>
