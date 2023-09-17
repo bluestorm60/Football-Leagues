@@ -11,7 +11,7 @@ protocol FootballLeaguesRepository {
     func fetchCompetitions() async throws -> AppResponse<LeaguesResponseModel>
     func fetchTeams(competionCode: String) async throws -> AppResponse<TeamsResponseModel>
     func fetchMatches(competionCode: String) async throws -> AppResponse<CompetitionMatchResponseModel>
-    func teamMatches(teamId: String) async throws -> AppResponse<TeamMatchesResponseModel>
+    func teamMatches(teamId: Int) async throws -> AppResponse<TeamMatchesResponseModel>
 }
 
 final class FootballLeaguesRepositoryImpl: FootballLeaguesRepository {
@@ -34,7 +34,7 @@ final class FootballLeaguesRepositoryImpl: FootballLeaguesRepository {
         return try await network.request(url: FootballLeaguesURLRequest.matches(competionCode: competionCode))
     }
     
-    func teamMatches(teamId: String) async throws -> AppResponse<TeamMatchesResponseModel> {
+    func teamMatches(teamId: Int) async throws -> AppResponse<TeamMatchesResponseModel> {
         return try await network.request(url: FootballLeaguesURLRequest.teamMatchs(teamId: teamId))
     }
 }

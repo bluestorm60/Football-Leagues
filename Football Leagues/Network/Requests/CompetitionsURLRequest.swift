@@ -12,7 +12,7 @@ enum FootballLeaguesURLRequest: BaseURLRequest{
     case leagues
     case teams(competionCode: String)
     case matches(competionCode: String)
-    case teamMatchs(teamId: String)
+    case teamMatchs(teamId: Int)
     
     var method: HTTPMethod {
         switch self{

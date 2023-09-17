@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+
 //MARK: - Input Protocol
 protocol TeamsViewModelInput{
     func viewWillAppear()
@@ -107,6 +108,7 @@ extension TeamsViewModel: TeamsCellViewModelDelegate{
     func openTeamDetails(item: TeamsUIModel.TeamUIModel?) {
         guard let item = item else {return}
         //navigate to Team Matches
+        coordinator?.openTeamGames(item: item)
 
     }
 }
