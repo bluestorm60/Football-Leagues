@@ -32,7 +32,7 @@ class Network {
     }
     #else
     static let shared = Network()
-    private init(session: URLSession = URLSession(configuration: .default),
+    init(session: URLSession = URLSession(configuration: .default),
                  responseError: ResponseErrorProtocol = NetworkResponseError(),
                  parser: JsonParserProtocol = JsonParser()) {
         
@@ -52,7 +52,7 @@ extension Network: NetworkProtocol {
             return result
         } catch {
             let responseError = self.responseError.filter(error: error)
-            throw responseError
+            return .error(responseError)
         }
     }
 }

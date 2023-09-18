@@ -6,8 +6,13 @@
 //
 
 import CoreData
+protocol CoreDataManagerProtocol {
+    var persistentContainer: NSPersistentContainer { get }
+    var viewContextBackground: NSManagedObjectContext { get }
+}
 
-public class CoreDataManager {
+public class CoreDataManager: CoreDataManagerProtocol {
+    
 
     // MARK: - Properties
     public static let shared = CoreDataManager()
@@ -16,15 +21,9 @@ public class CoreDataManager {
     private lazy var persistentCoordinator = persistentContainer.persistentStoreCoordinator
 
     // MARK: - Init
-    #if TESTING
     init() {
         setPersistentContainer()
     }
-    #else
-    private init() {
-        setPersistentContainer()
-    }
-    #endif
 
     // MARK: - Functions
     private func setPersistentContainer() {
@@ -40,26 +39,5 @@ public class CoreDataManager {
         viewContext.automaticallyMergesChangesFromParent = true
         viewContextBackground.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         viewContextBackground.parent = viewContext
-    }
-}
-
-
-extension CoreDataManager{
-    public func reset() {
-        viewContextBackground.performAndWait {
-            // We have just one persistent store
-            guard let loggerStore = persistentCoordinator.persistentStores.first else { return }
-            deletePersistentStore(loggerStore)
-            setPersistentContainer()
-        }
-    }
-
-    private func deletePersistentStore(_ store: NSPersistentStore) {
-        do{
-            try persistentCoordinator.destroyPersistentStore(at: store.url!, ofType: store.type, options: nil)
-        }
-        catch {
-            print(error)
-        }
     }
 }
