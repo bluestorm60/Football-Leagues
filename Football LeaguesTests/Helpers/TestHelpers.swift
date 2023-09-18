@@ -8,6 +8,12 @@
 import Foundation
 import XCTest
 
+extension Bundle {
+    public class var testBundle: Bundle {
+        return Bundle(for: Bundle.self)
+    }
+}
+
 // MARK: - helpers
 func getJSON(bundle: Bundle, for jsonName: String) -> Data {
     guard let path = bundle.path(forResource: jsonName, ofType: "json") else {
