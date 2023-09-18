@@ -20,12 +20,16 @@ struct TeamsUIModel {
         let emblem: String
     }
 
-    struct TeamUIModel {
+    struct TeamUIModel: Equatable{
         let id: Int
         let name: String
         let shortName: String
         let crest: String
 
+        public static func == (lhs: TeamUIModel, rhs: TeamUIModel) -> Bool {
+            return lhs.id == rhs.id &&
+            lhs.name == rhs.name 
+        }
     }
 }
 

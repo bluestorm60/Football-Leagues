@@ -10,7 +10,7 @@ import Foundation
 struct LeaguesUIModel {
     let count: Int
     var competitions: [CompetitionUIModel]
-    struct CompetitionUIModel {
+    struct CompetitionUIModel: Equatable{
         let id: Int
         let name: String
         let areaName: String
@@ -20,6 +20,12 @@ struct LeaguesUIModel {
         var numberOfmatches: String = "NA"
         var numberOfTeams: String = "NA"
         var numberOfSeasons: String = "NA"
+        
+        public static func == (lhs: LeaguesUIModel.CompetitionUIModel, rhs: LeaguesUIModel.CompetitionUIModel) -> Bool {
+            return lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.code == rhs.code
+        }
     }
     
     init(from responseModel: LeaguesResponseModel) {
