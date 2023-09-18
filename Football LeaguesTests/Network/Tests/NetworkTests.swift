@@ -18,9 +18,7 @@ class NetworkTests: XCTestCase {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [MockURLProtocol.self]
         session = URLSession(configuration: config)
-        #if TESTING
         sut = Network(session: session)
-        #endif
     }
     
     override func tearDownWithError() throws {

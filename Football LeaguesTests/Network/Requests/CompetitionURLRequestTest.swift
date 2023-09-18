@@ -10,7 +10,7 @@ import XCTest
 
 final class CompetitionURLRequestTest: XCTestCase {
     
-    func test_leagues() {
+    func test_leagues_request_checkParameters() {
         // When
         let leagues = FootballLeaguesURLRequest.leagues
         let path = leagues.path
@@ -22,7 +22,7 @@ final class CompetitionURLRequestTest: XCTestCase {
         XCTAssertEqual(headers, ["X-Auth-Token": "e29c2cf472b243f28e0f83afece75404"])
     }
     
-    func test_teams() {
+    func test_teams_request_checkParameters() {
         // When
         let leagues = FootballLeaguesURLRequest.teams(competionCode: "RSA")
         let path = leagues.path
@@ -34,7 +34,7 @@ final class CompetitionURLRequestTest: XCTestCase {
         XCTAssertEqual(headers, ["X-Auth-Token": "e29c2cf472b243f28e0f83afece75404"])
     }
 
-    func test_matches() {
+    func test_matches_request_checkParameters() {
         // When
         let leagues = FootballLeaguesURLRequest.matches(competionCode: "RSA")
         let path = leagues.path
@@ -46,7 +46,7 @@ final class CompetitionURLRequestTest: XCTestCase {
         XCTAssertEqual(headers, ["X-Auth-Token": "e29c2cf472b243f28e0f83afece75404"])
     }
 
-    func test_teamMatches() {
+    func test_teamMatches_request_checkParameters() {
         // When
         let leagues = FootballLeaguesURLRequest.teamMatchs(teamId: 500)
         let path = leagues.path
