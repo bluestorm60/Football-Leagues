@@ -10,7 +10,7 @@ import XCTest
 
 extension Bundle {
     public class var testBundle: Bundle {
-        return Bundle(for: Bundle.self)
+        return Bundle(for: NetworkTests.self)
     }
 }
 

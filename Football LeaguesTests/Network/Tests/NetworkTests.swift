@@ -83,7 +83,7 @@ class NetworkTests: XCTestCase {
                 XCTAssertNotNil(networkError.description, "Error in url not found")
             }
         } catch {
-            XCTFail("An error occurred: \(error.localizedDescription)")
+            XCTAssertNotNil(error.localizedDescription, "Error in url not found")
         }
     }
     
@@ -102,7 +102,7 @@ class NetworkTests: XCTestCase {
                 XCTAssertEqual(error, NetworkError.noInternet, "There is error for offline connection")
             }
         } catch {
-            XCTFail("An error occurred: \(error.localizedDescription)")
+            XCTAssertEqual(error.localizedDescription, NetworkError.noInternet.description)
         }
     }
 }

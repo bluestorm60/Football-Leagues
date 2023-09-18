@@ -52,7 +52,7 @@ extension Network: NetworkProtocol {
             return result
         } catch {
             let responseError = self.responseError.filter(error: error)
-            throw responseError
+            return .error(responseError)
         }
     }
 }
