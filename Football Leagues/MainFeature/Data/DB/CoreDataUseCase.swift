@@ -13,8 +13,6 @@ enum CoreDataError: Error {
     case deleteTeamsFailed
     case competitionNotFound
     case competitionNotFoundWith(Error)
-    case fail(Error)
-    case cannotSave
     
 }
 protocol CoreDataUseCase {
@@ -40,11 +38,12 @@ final class CoreDataUseCaseImpl: CoreDataUseCase {
     
     // MARK: - Competition Handling
     func saveCompetitions(_ competitions: [LeaguesUIModel.CompetitionUIModel], completion: @escaping (Error?) -> Void) {
-        manager.viewContextBackground.performAndWait {
+        manager.persistentContainer.performBackgroundTask { context in
             do {
-                try self.deleteAllCompetitions(context: manager.viewContextBackground)
-                try self.saveCompetitionsToContext(competitions, in: manager.viewContextBackground)
-                manager.saveContext(errorCompletion: completion)
+                try self.deleteAllCompetitions(context: context)
+                try self.saveCompetitionsToContext(competitions, in: context)
+                try context.save()
+                completion(nil)
             } catch {
                 completion(error)
             }

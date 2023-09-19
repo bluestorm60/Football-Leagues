@@ -9,12 +9,11 @@ import CoreData
 protocol CoreDataManagerProtocol {
     var persistentContainer: NSPersistentContainer { get }
     var viewContextBackground: NSManagedObjectContext { get }
-    
-    func saveContext(errorCompletion: @escaping (CoreDataError?)->Void)
 }
 
 public class CoreDataManager: CoreDataManagerProtocol {
     
+
     // MARK: - Properties
     public static let shared = CoreDataManager()
     var persistentContainer = NSPersistentContainer(name: Constants.modelName.rawValue)
@@ -40,27 +39,5 @@ public class CoreDataManager: CoreDataManagerProtocol {
         viewContext.automaticallyMergesChangesFromParent = true
         viewContextBackground.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         viewContextBackground.parent = viewContext
-    }
-    
-    func saveContext(errorCompletion: @escaping (CoreDataError?)->Void){
-        viewContextBackground.performAndWait {
-            do{
-                try saveBackgroundMode()
-            }catch{
-                errorCompletion(CoreDataError.fail(error))
-            }
-        }
-    }
-    
-    private func saveBackgroundMode() throws {
-        if viewContextBackground.hasChanges {
-            do {
-                try viewContextBackground.save()
-                try persistentContainer.viewContext.save()
-            }
-            catch {
-                throw error
-            }
-        }
     }
 }

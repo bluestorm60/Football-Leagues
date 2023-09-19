@@ -28,11 +28,11 @@ protocol TeamsViewModelOutput{
 typealias TeamsViewModelProtocols = TeamsViewModelInput & TeamsViewModelOutput
 
 final class TeamsViewModel: TeamsViewModelProtocols{
-    @Published var list: [TeamsCellViewModel] = []
-    @Published var loading: LoadingState = .none
-    @Published var errorMsg: String?
+    @Published private var list: [TeamsCellViewModel] = []
+    @Published private var loading: LoadingState = .none
+    @Published private var errorMsg: String?
 
-    var coordinator: MainCoordinator?
+    weak var coordinator: MainCoordinator?
     private let useCase: LeaguesUseCase
     private var cancellables = Set<AnyCancellable>()
     private var item: LeaguesUIModel.CompetitionUIModel
@@ -63,6 +63,9 @@ extension TeamsViewModel {
         requests()
     }
     
+    func getCompetitionName() -> String{
+        return item.name
+    }
     
     func numberOfRowsInSection() -> Int {
         return list.count
@@ -72,10 +75,6 @@ extension TeamsViewModel {
         return list[indexPath.row]
     }
     
-    func getCompetitionName() -> String{
-        return item.name
-    }
-
     func heightForRow() -> CGFloat {
         return cellHeight
     }

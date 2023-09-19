@@ -25,9 +25,9 @@ typealias LeaguesViewModelProtocols = LeaguesViewModelInput & LeaguesViewModelOu
 
 
 final class LeaguesViewModel: ObservableObject,  LeaguesViewModelProtocols{
-    @Published var list: [CompetitionCellViewModel] = []
+    @Published private var list: [CompetitionCellViewModel] = []
     @Published private var loading: LoadingState = .none
-    @Published var errorMsg: String?
+    @Published private var errorMsg: String?
 
     var coordinator: MainCoordinator?
     let useCase: LeaguesUseCase
