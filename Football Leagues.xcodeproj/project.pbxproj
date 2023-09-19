@@ -23,6 +23,12 @@
 		2B165C492AB8AF050078F431 /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B165C482AB8AF050078F431 /* MockCoreDataManager.swift */; };
 		2B165C4B2AB8B3E90078F431 /* CoreDataUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B165C4A2AB8B3E90078F431 /* CoreDataUseCaseImplTests.swift */; };
 		2B165C502AB8BFAF0078F431 /* NetworkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B165C4F2AB8BFAF0078F431 /* NetworkSpy.swift */; };
+		2B4130242AB9999D00A09B55 /* LeaguesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4130232AB9999D00A09B55 /* LeaguesViewModelTests.swift */; };
+		2B41302B2AB9B24300A09B55 /* TeamsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41302A2AB9B24300A09B55 /* TeamsViewModelTests.swift */; };
+		2B41302E2AB9B3E400A09B55 /* MockMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41302D2AB9B3E400A09B55 /* MockMainCoordinator.swift */; };
+		2B4130472AB9C59800A09B55 /* TeamsCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4130462AB9C59800A09B55 /* TeamsCellViewModelTests.swift */; };
+		2B4130492AB9C71000A09B55 /* MockTeamsMatchsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4130482AB9C71000A09B55 /* MockTeamsMatchsUseCase.swift */; };
+		2B41304B2AB9C80A00A09B55 /* TeamsMatchsUseCaseImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41304A2AB9C80A00A09B55 /* TeamsMatchsUseCaseImplTests.swift */; };
 		2B4D6EF82AAE30F600225EEE /* Football_LeaguesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D6EF72AAE30F600225EEE /* Football_LeaguesTests.swift */; };
 		2B4D6F022AAE30F600225EEE /* Football_LeaguesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D6F012AAE30F600225EEE /* Football_LeaguesUITests.swift */; };
 		2B4D6F042AAE30F600225EEE /* Football_LeaguesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D6F032AAE30F600225EEE /* Football_LeaguesUITestsLaunchTests.swift */; };
@@ -136,6 +142,12 @@
 		2B165C482AB8AF050078F431 /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataManager.swift; sourceTree = "<group>"; };
 		2B165C4A2AB8B3E90078F431 /* CoreDataUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUseCaseImplTests.swift; sourceTree = "<group>"; };
 		2B165C4F2AB8BFAF0078F431 /* NetworkSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpy.swift; sourceTree = "<group>"; };
+		2B4130232AB9999D00A09B55 /* LeaguesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewModelTests.swift; sourceTree = "<group>"; };
+		2B41302A2AB9B24300A09B55 /* TeamsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModelTests.swift; sourceTree = "<group>"; };
+		2B41302D2AB9B3E400A09B55 /* MockMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainCoordinator.swift; sourceTree = "<group>"; };
+		2B4130462AB9C59800A09B55 /* TeamsCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCellViewModelTests.swift; sourceTree = "<group>"; };
+		2B4130482AB9C71000A09B55 /* MockTeamsMatchsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamsMatchsUseCase.swift; sourceTree = "<group>"; };
+		2B41304A2AB9C80A00A09B55 /* TeamsMatchsUseCaseImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsMatchsUseCaseImplTests.swift; sourceTree = "<group>"; };
 		2B4D6EDA2AAE30F500225EEE /* Football Leagues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Leagues.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4D6EF32AAE30F600225EEE /* Football LeaguesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Football LeaguesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4D6EF72AAE30F600225EEE /* Football_LeaguesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Football_LeaguesTests.swift; sourceTree = "<group>"; };
@@ -282,6 +294,8 @@
 		2B0195F22AB7DCC80057D436 /* MainFeature */ = {
 			isa = PBXGroup;
 			children = (
+				2B41302C2AB9B3D500A09B55 /* Mock */,
+				2B4130192AB996CF00A09B55 /* Scenes */,
 				2BEACCCB2AB868DF00661AA7 /* Domain */,
 				2B0195F32AB7DCD70057D436 /* Data */,
 			);
@@ -388,6 +402,64 @@
 				2B0195DF2AB7CAD60057D436 /* CompetitionListStubs.swift */,
 			);
 			path = Stubs;
+			sourceTree = "<group>";
+		};
+		2B4130192AB996CF00A09B55 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2B4130282AB9B21600A09B55 /* Teams */,
+				2B41301A2AB9971300A09B55 /* Leagues */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2B41301A2AB9971300A09B55 /* Leagues */ = {
+			isa = PBXGroup;
+			children = (
+				2B41301B2AB9972800A09B55 /* ViewModel */,
+			);
+			path = Leagues;
+			sourceTree = "<group>";
+		};
+		2B41301B2AB9972800A09B55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B41301D2AB9977A00A09B55 /* Tests */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B41301D2AB9977A00A09B55 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2B4130232AB9999D00A09B55 /* LeaguesViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2B4130282AB9B21600A09B55 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				2B4130292AB9B23000A09B55 /* ViewModel */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		2B4130292AB9B23000A09B55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B41302A2AB9B24300A09B55 /* TeamsViewModelTests.swift */,
+				2B4130462AB9C59800A09B55 /* TeamsCellViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B41302C2AB9B3D500A09B55 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2B41302D2AB9B3E400A09B55 /* MockMainCoordinator.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		2B4D6ED12AAE30F500225EEE = {
@@ -895,6 +967,7 @@
 			children = (
 				2BEACCCD2AB8691500661AA7 /* Mock */,
 				2B66A01A2AB89B9800F2A48D /* LeaguesUseCaseImplTests.swift */,
+				2B41304A2AB9C80A00A09B55 /* TeamsMatchsUseCaseImplTests.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -903,6 +976,7 @@
 			isa = PBXGroup;
 			children = (
 				2BEACCCE2AB8692A00661AA7 /* MockLeaguesUseCase.swift */,
+				2B4130482AB9C71000A09B55 /* MockTeamsMatchsUseCase.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1125,18 +1199,23 @@
 				2B66A01E2AB89D0200F2A48D /* StubsModels.swift in Sources */,
 				2B0196022AB7E7AC0057D436 /* MockGenerator.swift in Sources */,
 				2B0195F12AB7DA8A0057D436 /* CompetitionURLRequestTest.swift in Sources */,
-				2B0195F72AB7DD2D0057D436 /* NetworkSpy.swift in Sources */,
 				2B0195DA2AB7C9B70057D436 /* NetworkTests.swift in Sources */,
+				2B41302B2AB9B24300A09B55 /* TeamsViewModelTests.swift in Sources */,
 				2B0195F92AB7DF6D0057D436 /* FootballLeaguesRepositoryTests.swift in Sources */,
+				2B4130472AB9C59800A09B55 /* TeamsCellViewModelTests.swift in Sources */,
 				2B0195E02AB7CAD60057D436 /* CompetitionListStubs.swift in Sources */,
 				2B66A01B2AB89B9800F2A48D /* LeaguesUseCaseImplTests.swift in Sources */,
 				2B0195DC2AB7CA380057D436 /* URLStubs.swift in Sources */,
 				2B165C502AB8BFAF0078F431 /* NetworkSpy.swift in Sources */,
 				2B0195DE2AB7CA4E0057D436 /* MockURLProtocol.swift in Sources */,
 				2B4D6EF82AAE30F600225EEE /* Football_LeaguesTests.swift in Sources */,
+				2B4130492AB9C71000A09B55 /* MockTeamsMatchsUseCase.swift in Sources */,
 				2B165C4B2AB8B3E90078F431 /* CoreDataUseCaseImplTests.swift in Sources */,
 				2BEACCCF2AB8692A00661AA7 /* MockLeaguesUseCase.swift in Sources */,
+				2B41302E2AB9B3E400A09B55 /* MockMainCoordinator.swift in Sources */,
+				2B4130242AB9999D00A09B55 /* LeaguesViewModelTests.swift in Sources */,
 				2B66A0182AB899B000F2A48D /* MockFootballLeaguesRepository.swift in Sources */,
+				2B41304B2AB9C80A00A09B55 /* TeamsMatchsUseCaseImplTests.swift in Sources */,
 				2B0195FC2AB7E63A0057D436 /* MockCoreDataUseCase.swift in Sources */,
 				2B165C492AB8AF050078F431 /* MockCoreDataManager.swift in Sources */,
 				2B9AFE7A2AB75D4D00A9C644 /* TestHelpers.swift in Sources */,
