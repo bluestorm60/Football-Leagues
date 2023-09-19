@@ -10,7 +10,7 @@ import Foundation
 struct TeamMatchesResponseModel: Codable {
     let filters: Filters
     let resultSet: ResultSet
-    let competition: Competition
+    let competition: Competition?
     let matches: [Match]
 
     struct Filters: Codable {
@@ -31,11 +31,11 @@ struct TeamMatchesResponseModel: Codable {
     }
 
     struct Competition: Codable {
-        let id: Int
-        let name: String
-        let code: String
-        let type: String
-        let emblem: String
+        let id: Int?
+        let name: String?
+        let code: String?
+        let type: String?
+        let emblem: String?
     }
 
     struct Match: Codable {
@@ -85,7 +85,7 @@ struct TeamMatchesResponseModel: Codable {
         }
 
         struct Score: Codable {
-            let winner: String
+            let winner: String?
             let duration: String
             let fullTime: ScoreDetail
             let halfTime: ScoreDetail

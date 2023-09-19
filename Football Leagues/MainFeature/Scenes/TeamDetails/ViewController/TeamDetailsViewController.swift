@@ -93,6 +93,6 @@ extension TeamDetailsViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRow()
+        return UITableView.automaticDimension
     }
 }

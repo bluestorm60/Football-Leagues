@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+struct TeamsViewModelActions {
+    let openTeamDetails: (TeamsUIModel.TeamUIModel) -> Void
+}
+
 //MARK: - Input Protocol
 protocol TeamsViewModelInput{
     func viewWillAppear()
@@ -28,12 +32,12 @@ protocol TeamsViewModelOutput{
 typealias TeamsViewModelProtocols = TeamsViewModelInput & TeamsViewModelOutput
 
 final class TeamsViewModel: TeamsViewModelProtocols{
-    @Published private var list: [TeamsCellViewModel] = []
-    @Published private var loading: LoadingState = .none
-    @Published private var errorMsg: String?
+    @Published var list: [TeamsCellViewModel] = []
+    @Published var loading: LoadingState = .none
+    @Published var errorMsg: String?
 
-    weak var coordinator: MainCoordinator?
     private let useCase: LeaguesUseCase
+    private let actions: TeamsViewModelActions?
     private var cancellables = Set<AnyCancellable>()
     private var item: LeaguesUIModel.CompetitionUIModel
     private var cellHeight: CGFloat {
@@ -45,10 +49,10 @@ final class TeamsViewModel: TeamsViewModelProtocols{
     var errorMsgPublisher: Published<String?>.Publisher {$errorMsg}
 
     //MARK: - Init
-    init(coordinator: MainCoordinator? = nil, useCase: LeaguesUseCase, item: LeaguesUIModel.CompetitionUIModel) {
-        self.coordinator = coordinator
+    init(useCase: LeaguesUseCase, item: LeaguesUIModel.CompetitionUIModel,actions: TeamsViewModelActions? = nil) {
         self.useCase = useCase
         self.item = item
+        self.actions = actions
         self.useCase.loadingPublisher.assignNoRetain(to: \.loading, on: self).store(in: &cancellables)
     }
 }
@@ -63,9 +67,6 @@ extension TeamsViewModel {
         requests()
     }
     
-    func getCompetitionName() -> String{
-        return item.name
-    }
     
     func numberOfRowsInSection() -> Int {
         return list.count
@@ -75,6 +76,10 @@ extension TeamsViewModel {
         return list[indexPath.row]
     }
     
+    func getCompetitionName() -> String{
+        return item.name
+    }
+
     func heightForRow() -> CGFloat {
         return cellHeight
     }
@@ -108,8 +113,7 @@ extension TeamsViewModel: TeamsCellViewModelDelegate{
     func openTeamDetails(item: TeamsUIModel.TeamUIModel?) {
         guard let item = item else {return}
         //navigate to Team Matches
-        coordinator?.openTeamGames(item: item)
-
+        actions?.openTeamDetails(item)
     }
 }
 

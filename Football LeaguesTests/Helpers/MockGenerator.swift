@@ -9,6 +9,32 @@ import Foundation
 @testable import Football_Leagues
 
 struct MockGenerator {
+    
+    
+    static func generateTeamsCellViewModels(count: Int, delegate: TeamsCellViewModelDelegate?) -> [TeamsCellViewModel]{
+        let teamsList = MockGenerator.generateCompetitionTeams(count: 10)
+        var list: [TeamsCellViewModel] = []
+        for i in 1...count {
+            let team = TeamsCellViewModel(teamsList[i - 1], delegate)
+            list.append(team)
+        }
+        return list
+    }
+
+    static func generateCompetitionCellViewModels(count: Int, delegate: CompetitionCellViewModelDelegate?) -> [CompetitionCellViewModel]{
+        let generateCompetitions = MockGenerator.generateCompetitions(count: count)
+        var competitions: [CompetitionCellViewModel] = []
+        for i in 1...count {
+            let competition = CompetitionCellViewModel(generateCompetitions[i - 1], delegate)
+            competitions.append(competition)
+        }
+        return competitions
+    }
+    
+    static func generateLeaguesUIModel(count: Int) -> LeaguesUIModel{
+        return LeaguesUIModel(count: count, competitions: MockGenerator.generateCompetitions(count: count))
+    }
+    
     static func generateCompetitions(count: Int) -> [LeaguesUIModel.CompetitionUIModel] {
         var competitions: [LeaguesUIModel.CompetitionUIModel] = []
 

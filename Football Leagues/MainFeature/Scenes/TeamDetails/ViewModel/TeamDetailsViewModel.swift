@@ -34,13 +34,13 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
     @Published private var loading: LoadingState = .none
     @Published private var errorMsg: String?
 
-    weak var coordinator: MainCoordinator?
     private let useCase: TeamsMatchsUseCase
     private var cancellables = Set<AnyCancellable>()
     private var item: TeamsUIModel.TeamUIModel
     private var cellHeight: CGFloat {
-        return 120.0
+        return 126.0
     }
+    
     //MARK: - Outputs
     var listPublisher: Published<[TeamMatchesCellViewModel]>.Publisher {$list}
     var loadingPublisher: Published<LoadingState>.Publisher {$loading}
@@ -48,7 +48,6 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
 
     //MARK: - Init
     init(coordinator: MainCoordinator? = nil, useCase: TeamsMatchsUseCase, item: TeamsUIModel.TeamUIModel) {
-        self.coordinator = coordinator
         self.useCase = useCase
         self.item = item
         self.useCase.loadingPublisher.assignNoRetain(to: \.loading, on: self).store(in: &cancellables)
