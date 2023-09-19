@@ -34,7 +34,6 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
     @Published private var loading: LoadingState = .none
     @Published private var errorMsg: String?
 
-    weak var coordinator: MainCoordinator?
     private let useCase: TeamsMatchsUseCase
     private var cancellables = Set<AnyCancellable>()
     private var item: TeamsUIModel.TeamUIModel
@@ -48,7 +47,6 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
 
     //MARK: - Init
     init(coordinator: MainCoordinator? = nil, useCase: TeamsMatchsUseCase, item: TeamsUIModel.TeamUIModel) {
-        self.coordinator = coordinator
         self.useCase = useCase
         self.item = item
         self.useCase.loadingPublisher.assignNoRetain(to: \.loading, on: self).store(in: &cancellables)
