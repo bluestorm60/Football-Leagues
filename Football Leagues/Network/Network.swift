@@ -7,30 +7,15 @@
 
 import Foundation
 
-
 protocol NetworkProtocol {
     func request <T: Codable>(url: BaseURLRequest) async throws -> AppResponse<T> 
 }
 
 class Network {
-    
     // MARK: - Properties
     private let responseError: ResponseErrorProtocol
     private let parser: JsonParserProtocol
     private var session: URLSession
-    #if TESTING
-    static var shared = Network()
-    
-    // MARK: - Init
-    init(session: URLSession = URLSession(configuration: .default),
-         responseError: ResponseErrorProtocol = NetworkResponseError(),
-         parser: JsonParserProtocol = JsonParser()) {
-        
-        self.session = session
-        self.responseError = responseError
-        self.parser = parser
-    }
-    #else
     static let shared = Network()
     init(session: URLSession = URLSession(configuration: .default),
                  responseError: ResponseErrorProtocol = NetworkResponseError(),
@@ -40,7 +25,6 @@ class Network {
         self.responseError = responseError
         self.parser = parser
     }
-    #endif
 }
 
 extension Network: NetworkProtocol {

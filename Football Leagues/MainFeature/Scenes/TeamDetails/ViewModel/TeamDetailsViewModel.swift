@@ -38,7 +38,7 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
     private var cancellables = Set<AnyCancellable>()
     private var item: TeamsUIModel.TeamUIModel
     private var cellHeight: CGFloat {
-        return 120.0
+        return 126.0
     }
     //MARK: - Outputs
     var listPublisher: Published<[TeamMatchesCellViewModel]>.Publisher {$list}
