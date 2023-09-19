@@ -20,28 +20,17 @@ enum FootballLeaguesURLRequest: BaseURLRequest{
             return .get
         }
     }
-    var endPoints: String{
-        switch self {
-        case .leagues:
-            return "competitions"
-        case .teams:
-            return "/teams"
-        case .matches:
-            return "/matches"
-        case .teamMatchs:
-            return "/matches"
-        }
-    }
+    
     var path: String{
         switch self{
         case .leagues:
-            return endPoints
+            return "competitions"
         case .teams(let competionCode):
-            return "competitions/\(competionCode)" + endPoints
+            return "competitions/\(competionCode)/teams"
         case .matches(let competionCode):
-            return "competitions/\(competionCode)" + endPoints
+            return "competitions/\(competionCode)/matches"
         case .teamMatchs(let teamId):
-            return "teams/\(teamId)" + endPoints
+            return "teams/\(teamId)/matches"
         }
     }
     

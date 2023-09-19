@@ -26,10 +26,9 @@ class TeamMatchesTableViewCell: UITableViewCell {
         guard let item = item else {return}
         scheduledDateLbl.isHidden = item.isScheduledDateHidden()
         matchDateLbl.isHidden = !item.isScheduledDateHidden()
-        scheduledDateLbl.text = item.getMatchDate()
-        matchDateLbl.text = item.getMatchDate()
         homeLogoImgeView.load(with: item.getHomeLogo())
         awayLogoImgeView.load(with: item.getAwayLogo())
         statusLabl.text = item.getScore()
     }
+
 }

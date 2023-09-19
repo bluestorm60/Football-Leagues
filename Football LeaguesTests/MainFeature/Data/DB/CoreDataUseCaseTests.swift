@@ -139,4 +139,80 @@ final class CoreDataUseCaseTests: XCTestCase {
         }
         waitForExpectations(timeout: 1.0, handler: nil)
     }
+
+    
+    //        func testRetrieveTeamsForCompetition() {
+    //            let competitionCodeToRetrieveFor = "yourCompetitionCode"
+    //            let teamsToRetrieve: [TeamsUIModel.TeamUIModel] = /* Create mock teams */
+    //            mockCoreDataUseCase.retrievedTeamsForCompetitionCode = competitionCodeToRetrieveFor
+    //            mockCoreDataUseCase.teamsToRetrieve = teamsToRetrieve
+    //
+    //            let expectation = self.expectation(description: "Retrieve Teams for Competition")
+    //
+    //            Task {
+    //                do {
+    //                    let response = try await mockCoreDataUseCase.retrieveTeams(for: competitionCodeToRetrieveFor)
+    //                    switch response {
+    //                    case .success(let retrievedTeams):
+    //                        XCTAssertEqual(retrievedTeams, teamsToRetrieve)
+    //                    case .failure:
+    //                        XCTFail("Should return success")
+    //                    }
+    //                    expectation.fulfill()
+    //                } catch {
+    //                    XCTFail("Error thrown: \(error)")
+    //                    expectation.fulfill()
+    //                }
+    //            }
+    //
+    //            waitForExpectations(timeout: 1.0, handler: nil)
+    //        }
+    //
+    //        func testDeleteTeams() {
+    //            let competitionCodeToDeleteTeamsFor = "yourCompetitionCode"
+    //            let expectation = self.expectation(description: "Delete Teams")
+    //
+    //            mockCoreDataUseCase.deleteTeams(for: competitionCodeToDeleteTeamsFor) { error in
+    //                XCTAssertNil(error)
+    //                XCTAssertEqual(self.mockCoreDataUseCase.deletedCompetitionCode, competitionCodeToDeleteTeamsFor)
+    //                expectation.fulfill()
+    //            }
+    //
+    //            waitForExpectations(timeout: 1.0, handler: nil)
+    //        }
+    //    func testDeleteTeamsFailure() {
+    //           let competitionCodeToDeleteTeamsFor = "nonExistentCompetitionCode"
+    //           let expectation = self.expectation(description: "Delete Teams Failure")
+    //
+    //           mockCoreDataUseCase.deleteTeams(for: competitionCodeToDeleteTeamsFor) { error in
+    //               XCTAssertNotNil(error)
+    //               if case CoreDataError.competitionNotFound = error {
+    //                   // Expected error case
+    //               } else {
+    //                   XCTFail("Unexpected error: \(error)")
+    //               }
+    //               expectation.fulfill()
+    //           }
+    //
+    //           waitForExpectations(timeout: 1.0, handler: nil)
+    //       }
+    //
+    //       func testDeleteTeamsWithError() {
+    //           let competitionCodeToDeleteTeamsFor = "yourCompetitionCode"
+    //           let errorToDeleteTeams = NSError(domain: "TestErrorDomain", code: 123, userInfo: nil)
+    //           let expectation = self.expectation(description: "Delete Teams with Error")
+    //
+    //           mockCoreDataUseCase.errorToDeleteTeams = errorToDeleteTeams
+    //           mockCoreDataUseCase.deleteTeams(for: competitionCodeToDeleteTeamsFor) { error in
+    //               XCTAssertNotNil(error)
+    //               if case CoreDataError.deleteTeamsFailedWith(let underlyingError) = error {
+    //                   XCTAssertEqual(underlyingError as NSError, errorToDeleteTeams)
+    //               } else {
+    //                   XCTFail("Unexpected error: \(error)")
+    //               }
+    //               expectation.fulfill()
+    //           }
+    //
+    //           waitForExpectations(timeout: 1.0, handler: nil)
+    //       }
 }
