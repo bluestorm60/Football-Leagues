@@ -23,3 +23,11 @@ func getJSON(bundle: Bundle, for jsonName: String) -> Data {
     let data = try! Data(contentsOf: url)
     return data
 }
+
+extension XCTestCase {
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
+        }
+    }
+}

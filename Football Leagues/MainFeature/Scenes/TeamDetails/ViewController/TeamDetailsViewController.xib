@@ -31,8 +31,15 @@
                                 <constraint firstAttribute="height" constant="120" id="Owm-vB-lDD"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yr8-aC-6Zz">
+                            <rect key="frame" x="0.0" y="120" width="393" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="avA-0S-gbN"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFp-ZY-7K6">
-                            <rect key="frame" x="0.0" y="119.99999999999999" width="393" height="40.333333333333329"/>
+                            <rect key="frame" x="0.0" y="120.99999999999999" width="393" height="40.333333333333329"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa3-Tm-2yE">
                                     <rect key="frame" x="10" y="9.9999999999999982" width="373" height="20.333333333333329"/>
@@ -47,25 +54,6 @@
                                 <constraint firstAttribute="bottom" secondItem="Fa3-Tm-2yE" secondAttribute="bottom" constant="10" id="KfG-Vf-Wih"/>
                                 <constraint firstAttribute="trailing" secondItem="Fa3-Tm-2yE" secondAttribute="trailing" constant="10" id="g76-au-qVn"/>
                                 <constraint firstItem="Fa3-Tm-2yE" firstAttribute="top" secondItem="OFp-ZY-7K6" secondAttribute="top" constant="10" id="ruj-xf-wha"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-HS-5Mf">
-                            <rect key="frame" x="0.0" y="160.33333333333334" width="393" height="1"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yr8-aC-6Zz">
-                                    <rect key="frame" x="10" y="0.0" width="373" height="1"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="avA-0S-gbN"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Yr8-aC-6Zz" secondAttribute="bottom" id="HjG-ug-IWb"/>
-                                <constraint firstAttribute="trailing" secondItem="Yr8-aC-6Zz" secondAttribute="trailing" constant="10" id="KNM-WC-fFT"/>
-                                <constraint firstItem="Yr8-aC-6Zz" firstAttribute="top" secondItem="Gg3-HS-5Mf" secondAttribute="top" id="T8V-fc-UhP"/>
-                                <constraint firstItem="Yr8-aC-6Zz" firstAttribute="leading" secondItem="Gg3-HS-5Mf" secondAttribute="leading" constant="10" id="pp8-Vs-eUm"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns7-QL-YDx">

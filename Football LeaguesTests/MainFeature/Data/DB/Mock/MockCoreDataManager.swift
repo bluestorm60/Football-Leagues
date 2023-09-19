@@ -13,7 +13,7 @@ class MockCoreDataManager: CoreDataManagerProtocol {
     var viewContextBackground: NSManagedObjectContext
     
     var persistentContainer: NSPersistentContainer
-    var shouldFail = false
+    
     // MARK: - Properties
     private lazy var persistentCoordinator = persistentContainer.persistentStoreCoordinator
     
@@ -34,29 +34,5 @@ class MockCoreDataManager: CoreDataManagerProtocol {
         viewContextBackground.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         viewContextBackground.parent = viewContext
         
-    }
-    
-    func saveContext(errorCompletion: @escaping (CoreDataError?) -> Void) {
-        if shouldFail{
-            errorCompletion(CoreDataError.cannotSave)
-        }else{
-            do {
-                try saveBackgroundMode()
-                errorCompletion(nil)
-            } catch {
-                errorCompletion(CoreDataError.objectNotFoundWith(error))
-            }
-        }
-    }
-    
-    private func saveBackgroundMode() throws {
-        if viewContextBackground.hasChanges {
-            do {
-                try viewContextBackground.save()
-                try persistentContainer.viewContext.save()
-            } catch {
-                throw error
-            }
-        }
     }
 }

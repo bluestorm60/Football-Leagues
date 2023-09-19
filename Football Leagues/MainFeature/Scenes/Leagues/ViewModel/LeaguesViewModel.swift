@@ -8,10 +8,6 @@
 import Foundation
 import Combine
 
-struct LeaguesViewModelActions {
-    let openCompetition: (LeaguesUIModel.CompetitionUIModel) -> Void
-}
-
 //MARK: - Input Protocol
 protocol LeaguesViewModelInput{
     func viewWillAppear()
@@ -29,13 +25,12 @@ typealias LeaguesViewModelProtocols = LeaguesViewModelInput & LeaguesViewModelOu
 
 
 final class LeaguesViewModel: ObservableObject,  LeaguesViewModelProtocols{
-    @Published var list: [CompetitionCellViewModel] = []
+    @Published private var list: [CompetitionCellViewModel] = []
     @Published private var loading: LoadingState = .none
-    @Published var errorMsg: String?
+    @Published private var errorMsg: String?
 
-    private let useCase: LeaguesUseCase
-    private let actions: LeaguesViewModelActions?
-
+    var coordinator: MainCoordinator?
+    let useCase: LeaguesUseCase
     private var cancellables = Set<AnyCancellable>()
 
     //MARK: - Outputs
@@ -44,9 +39,9 @@ final class LeaguesViewModel: ObservableObject,  LeaguesViewModelProtocols{
     var errorMsgPublisher: Published<String?>.Publisher {$errorMsg}
 
     //MARK: - Init
-    init(useCase: LeaguesUseCase, actions: LeaguesViewModelActions? = nil) {
+    init(coordinator: MainCoordinator? = nil, useCase: LeaguesUseCase) {
+        self.coordinator = coordinator
         self.useCase = useCase
-        self.actions = actions
         self.useCase.loadingPublisher.assignNoRetain(to: \.loading, on: self).store(in: &cancellables)
     }
     
@@ -94,6 +89,6 @@ extension LeaguesViewModel: CompetitionCellViewModelDelegate{
     func openCompetition(item: LeaguesUIModel.CompetitionUIModel?) {
         guard let item = item else {return}
         //navigate to Competition teams
-        actions?.openCompetition(item)
+        coordinator?.openTeams(item, useCase)
     }
 }
