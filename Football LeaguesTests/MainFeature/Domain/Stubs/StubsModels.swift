@@ -47,4 +47,14 @@ struct StubsModels {
         return teams
     }
 
+    static func getTeamGamesResponse() -> TeamMatchesResponseModel?{
+        let data = getJSON(bundle: Bundle.testBundle, for: "teamMatches")
+        do{
+            let response = try JSONDecoder().decode(TeamMatchesResponseModel.self, from: data)
+            return response
+        }catch{
+            print(error.localizedDescription)
+        }
+        return nil
+    }
 }
