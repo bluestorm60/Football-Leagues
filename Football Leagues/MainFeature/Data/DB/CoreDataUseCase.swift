@@ -122,7 +122,7 @@ final class CoreDataUseCaseImpl: CoreDataUseCase {
     }
     
     private func deleteTeams(for competition: Competition, context: NSManagedObjectContext) throws {
-        guard let teams = competition.teams as? Set<Team> else { return }
+        guard let teams = competition.teams else { return }
         teams.forEach { context.delete($0 ) }
     }
     

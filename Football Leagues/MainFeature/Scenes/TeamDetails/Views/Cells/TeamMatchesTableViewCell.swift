@@ -32,5 +32,4 @@ class TeamMatchesTableViewCell: UITableViewCell {
         awayLogoImgeView.load(with: item.getAwayLogo())
         statusLabl.text = item.getScore()
     }
-
 }

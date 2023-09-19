@@ -40,6 +40,7 @@ final class TeamDetailsViewModel: TeamDetailsViewModelProtocols{
     private var cellHeight: CGFloat {
         return 126.0
     }
+    
     //MARK: - Outputs
     var listPublisher: Published<[TeamMatchesCellViewModel]>.Publisher {$list}
     var loadingPublisher: Published<LoadingState>.Publisher {$loading}
